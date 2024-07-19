@@ -1,4 +1,5 @@
 const dataPoints = [
+    { id: 1, date: new Date(2015, 9, 2) },
     { id: 173870712, date: new Date(2016, 3, 13) },
     { id: 250129497, date: new Date(2017, 5, 3) },
     { id: 401921266, date: new Date(2017, 6, 25) },
@@ -51,7 +52,7 @@ function estimateRegistrationDate(userId, dataPoints) {
             return estimatedDate;
         }
     }
-
+    console.log('User ID not found in data points');
     const { id: idLast, date: dateLast } = dataPoints[dataPoints.length - 1];
     const { id: idSecondLast, date: dateSecondLast } = dataPoints[dataPoints.length - 2];
     const daysBetween = (dateLast - dateSecondLast) / (1000 * 60 * 60 * 24);
@@ -63,7 +64,7 @@ function estimateRegistrationDate(userId, dataPoints) {
     return estimatedDate;
 }
 
-const userIdToEstimate = 7168472704;
+const userIdToEstimate = 8275317003;
 const estimatedDate = estimateRegistrationDate(userIdToEstimate, dataPoints);
 const ageInYears = calculateAge(estimatedDate);
 
